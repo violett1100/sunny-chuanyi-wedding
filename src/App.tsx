@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import './css/style.min.css'
 import './css/splide.min.css'
 
@@ -28,7 +28,7 @@ function App() {
     setIsPlaying(true)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const quote = document.querySelectorAll<HTMLElement>('.quote .animate-item')
       gsap.from(quote, {
@@ -123,18 +123,6 @@ function App() {
         scrollTrigger: {
           trigger: '.theInfo',
           start: 'top 50%',
-          // markers: true,
-        },
-      })
-
-      const reply = document.querySelectorAll<HTMLElement>('.reply .animate-item')
-      gsap.from(reply, {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: '.reply',
-          start: 'top 60%',
           // markers: true,
         },
       })
