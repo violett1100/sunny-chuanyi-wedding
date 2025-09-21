@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@200..900&display=swap');
+
+body {
+  margin: 0;
+}
+
+body * {
+  box-sizing: border-box;
+  font-family: 'Libre Baskerville', 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-style: normal;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
