@@ -35,6 +35,7 @@ function App() {
         opacity: 1,
         duration: 1,
         stagger: 0.5,
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.quote',
           start: 'top 40%',
@@ -47,6 +48,7 @@ function App() {
         opacity: 1,
         duration: 1,
         stagger: 0.5,
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.about1',
           start: 'top 50%',
@@ -59,6 +61,7 @@ function App() {
         opacity: 1,
         duration: 1,
         stagger: { each: 0.5, from: 'end' },
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.about2',
           start: 'top 50%',
@@ -80,6 +83,7 @@ function App() {
           if (index === 2 || index === 3) return 1 // C & D 同時
           return index * 0.5 // 其他照規則延遲
         },
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.parent1',
           start: 'top 50%',
@@ -94,6 +98,7 @@ function App() {
           if (index === 2 || index === 3) return 1 // C & D 同時
           return index * 0.5 // 其他照規則延遲
         },
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.parent2',
           start: 'top 50%',
@@ -114,6 +119,7 @@ function App() {
           if (index === 6 || index === 10) return 3
           return index * 0.5
         },
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.theInfo',
           start: 'top 50%',
@@ -125,6 +131,7 @@ function App() {
       gsap.to(reply, {
         opacity: 0.9,
         duration: 1,
+        immediateRender: false,
         scrollTrigger: {
           trigger: '.reply',
           start: 'top 60%',
