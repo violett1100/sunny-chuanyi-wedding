@@ -1,8 +1,3 @@
-.animate-item,
-.landing-animate {
-  opacity: 0;
-}
-
 .audio-btn {
   width: 28px;
   padding: 0;
@@ -161,10 +156,10 @@ p.text-bg span {
 
 @keyframes fade {
   0% {
-    opacity: 1;
+    top: 0;
   }
   100% {
-    opacity: 0;
+    top: -100%;
     display: none;
   }
 }
@@ -477,19 +472,21 @@ p.text-bg span {
   display: inline-block;
   margin: 0 auto;
   width: 112px;
-  top: 24px;
-  transition: all 0.8s;
+  opacity: 0.9;
+  transform: translateY(24px);
+  transition: all 1s;
 }
 .reply a:hover {
-  transform: scale(1.1);
+  opacity: 1;
+  transform: translateY(24px) scale(1.1);
 }
 @media (min-width: 576px) {
   .reply a {
     width: 240px;
-    top: 64px;
+    transform: translateY(64px);
   }
   .reply a:hover {
-    transform: scale(1.1);
+    transform: translateY(64px) scale(1.1);
   }
 }
 

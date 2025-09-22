@@ -7,11 +7,6 @@ $colorDark: #7f191e;
   border: $width solid $colorPrimary;
 }
 
-.animate-item,
-.landing-animate {
-  opacity: 0;
-}
-
 .audio-btn {
   width: 28px;
   padding: 0;
@@ -155,10 +150,10 @@ p {
 }
 @keyframes fade {
   0% {
-    opacity: 1;
+    top: 0;
   }
   100% {
-    opacity: 0;
+    top: -100%;
     display: none;
   }
 }
@@ -434,16 +429,18 @@ p {
     display: inline-block;
     margin: 0 auto;
     width: 112px;
-    top: 24px;
+    opacity: 0.9;
+    transform: translateY(24px);
     &:hover {
-      transform: scale(1.1);
+      opacity: 1;
+      transform: translateY(24px) scale(1.1);
     }
-    transition: all 0.8s;
+    transition: all 1s;
     @media (min-width: 576px) {
       width: 240px;
-      top: 64px;
+      transform: translateY(64px);
       &:hover {
-        transform: scale(1.1);
+        transform: translateY(64px) scale(1.1);
       }
     }
   }
