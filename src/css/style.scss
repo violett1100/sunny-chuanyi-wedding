@@ -7,6 +7,11 @@ $colorDark: #7f191e;
   border: $width solid $colorPrimary;
 }
 
+.animate-item,
+.landing-animate {
+  opacity: 0;
+}
+
 .audio-btn {
   width: 28px;
   padding: 0;
@@ -429,13 +434,11 @@ p {
     display: inline-block;
     margin: 0 auto;
     width: 112px;
-    opacity: 0.9;
     top: 24px;
     &:hover {
-      opacity: 1;
       transform: scale(1.1);
     }
-    transition: all 1s;
+    transition: all 0.8s;
     @media (min-width: 576px) {
       width: 240px;
       top: 64px;

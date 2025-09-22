@@ -31,9 +31,8 @@ function App() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const quote = document.querySelectorAll<HTMLElement>('.quote .animate-item')
-      gsap.from(quote, {
-        y: 40,
-        opacity: 0,
+      gsap.to(quote, {
+        opacity: 1,
         duration: 1,
         stagger: 0.5,
         scrollTrigger: {
@@ -44,9 +43,8 @@ function App() {
       })
 
       const about1 = document.querySelectorAll<HTMLElement>('.about1 .animate-item')
-      gsap.from(about1, {
-        y: 40,
-        opacity: 0,
+      gsap.to(about1, {
+        opacity: 1,
         duration: 1,
         stagger: 0.5,
         scrollTrigger: {
@@ -57,9 +55,8 @@ function App() {
       })
 
       const about2 = document.querySelectorAll<HTMLElement>('.about2 .animate-item')
-      gsap.from(about2, {
-        y: 40,
-        opacity: 0,
+      gsap.to(about2, {
+        opacity: 1,
         duration: 1,
         stagger: { each: 0.5, from: 'end' },
         scrollTrigger: {
@@ -74,9 +71,8 @@ function App() {
       const parent2 = document.querySelectorAll<HTMLElement>('.parent2 .animate-item')
       const parent1Order = parentOrder.map((i) => parent1[i])
       const parent2Order = parentOrder.map((i) => parent2[i])
-      gsap.from(parent1Order, {
-        y: 20,
-        opacity: 0,
+      gsap.to(parent1Order, {
+        opacity: 1,
         duration: 1,
         stagger: (index) => {
           if (index === 0) return 0 // A
@@ -89,9 +85,8 @@ function App() {
           start: 'top 50%',
         },
       })
-      gsap.from(parent2Order, {
-        y: 20,
-        opacity: 0,
+      gsap.to(parent2Order, {
+        opacity: 1,
         duration: 1,
         stagger: (index) => {
           if (index === 0) return 0 // A
@@ -106,9 +101,8 @@ function App() {
       })
 
       const theInfo = document.querySelectorAll<HTMLElement>('.theInfo .animate-item')
-      gsap.from(theInfo, {
-        y: 20,
-        opacity: 0,
+      gsap.to(theInfo, {
+        opacity: 1,
         duration: 1,
         stagger: (index) => {
           if (index === 0) return 0
@@ -128,9 +122,8 @@ function App() {
       })
 
       const reply = document.querySelectorAll<HTMLElement>('.reply .animate-item')
-      gsap.from(reply, {
-        y: 30,
-        opacity: 0,
+      gsap.to(reply, {
+        opacity: 0.9,
         duration: 1,
         scrollTrigger: {
           trigger: '.reply',
@@ -140,8 +133,8 @@ function App() {
       })
 
       specialTl.current = gsap.timeline({ paused: true })
-      specialTl.current.from('.landing-animate', {
-        opacity: 0,
+      specialTl.current.to('.landing-animate', {
+        opacity: 1,
         duration: 1,
         delay: 1,
         stagger: (index) => {
