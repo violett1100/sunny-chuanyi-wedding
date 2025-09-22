@@ -151,12 +151,14 @@ function App() {
           return index * 0.5
         },
       })
-
-      ScrollTrigger.refresh()
     }, containerRef)
 
     return () => ctx.revert()
   }, [])
+
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh()
+  })
 
   const hide = hasEnter ? 'hide' : ''
   return (
