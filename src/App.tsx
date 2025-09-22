@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './css/style.min.css'
 import './css/splide.min.css'
 
@@ -28,7 +28,7 @@ function App() {
     setIsPlaying(true)
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const quote = document.querySelectorAll<HTMLElement>('.quote .animate-item')
       gsap.from(quote, {
