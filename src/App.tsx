@@ -23,6 +23,7 @@ function App() {
   }
 
   const handleClick = () => {
+    ScrollTrigger.refresh()
     specialTl.current?.restart()
     setHasEnter(true)
     setIsPlaying(true)
