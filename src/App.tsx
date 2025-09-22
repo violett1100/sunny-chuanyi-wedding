@@ -127,6 +127,18 @@ function App() {
         },
       })
 
+      const reply = document.querySelectorAll<HTMLElement>('.reply .animate-item')
+      gsap.from(reply, {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.reply',
+          start: 'top 60%',
+          // markers: true,
+        },
+      })
+
       specialTl.current = gsap.timeline({ paused: true })
       specialTl.current.from('.landing-animate', {
         opacity: 0,

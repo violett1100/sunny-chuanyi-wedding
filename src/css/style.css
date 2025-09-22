@@ -156,10 +156,10 @@ p.text-bg span {
 
 @keyframes fade {
   0% {
-    top: 0;
+    opacity: 1;
   }
   100% {
-    top: -100%;
+    opacity: 0;
     display: none;
   }
 }
@@ -473,20 +473,20 @@ p.text-bg span {
   margin: 0 auto;
   width: 112px;
   opacity: 0.9;
-  transform: translateY(24px);
+  top: 24px;
   transition: all 1s;
 }
 .reply a:hover {
   opacity: 1;
-  transform: translateY(24px) scale(1.1);
+  transform: scale(1.1);
 }
 @media (min-width: 576px) {
   .reply a {
     width: 240px;
-    transform: translateY(64px);
+    top: 64px;
   }
   .reply a:hover {
-    transform: translateY(64px) scale(1.1);
+    transform: scale(1.1);
   }
 }
 
