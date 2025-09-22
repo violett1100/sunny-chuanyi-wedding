@@ -1,12 +1,10 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './css/style.min.css'
 import './css/splide.min.css'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-
-gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -28,137 +26,135 @@ function App() {
     setIsPlaying(true)
   }
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const quote = document.querySelectorAll<HTMLElement>('.quote .animate-item')
-      gsap.to(quote, {
-        opacity: 1,
-        duration: 1,
-        stagger: 0.5,
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.quote',
-          start: 'top 40%',
-          // markers: true,
-        },
-      })
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger)
 
-      const about1 = document.querySelectorAll<HTMLElement>('.about1 .animate-item')
-      gsap.to(about1, {
-        opacity: 1,
-        duration: 1,
-        stagger: 0.5,
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.about1',
-          start: 'top 50%',
-          // markers: true,
-        },
-      })
+      gsap.context(() => {
+        const quote = document.querySelectorAll<HTMLElement>('.quote .animate-item')
+        gsap.to(quote, {
+          opacity: 1,
+          duration: 1,
+          stagger: 0.5,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.quote',
+            start: 'top 40%',
+            // markers: true,
+          },
+        })
 
-      const about2 = document.querySelectorAll<HTMLElement>('.about2 .animate-item')
-      gsap.to(about2, {
-        opacity: 1,
-        duration: 1,
-        stagger: { each: 0.5, from: 'end' },
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.about2',
-          start: 'top 50%',
-          // markers: true,
-        },
-      })
+        const about1 = document.querySelectorAll<HTMLElement>('.about1 .animate-item')
+        gsap.to(about1, {
+          opacity: 1,
+          duration: 1,
+          stagger: 0.5,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.about1',
+            start: 'top 50%',
+            // markers: true,
+          },
+        })
 
-      const parentOrder = [1, 0, 2, 3]
-      const parent1 = document.querySelectorAll<HTMLElement>('.parent1 .animate-item')
-      const parent2 = document.querySelectorAll<HTMLElement>('.parent2 .animate-item')
-      const parent1Order = parentOrder.map((i) => parent1[i])
-      const parent2Order = parentOrder.map((i) => parent2[i])
-      gsap.to(parent1Order, {
-        opacity: 1,
-        duration: 1,
-        stagger: (index) => {
-          if (index === 0) return 0 // A
-          if (index === 1) return 0.5 // B
-          if (index === 2 || index === 3) return 1 // C & D 同時
-          return index * 0.5 // 其他照規則延遲
-        },
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.parent1',
-          start: 'top 50%',
-        },
-      })
-      gsap.to(parent2Order, {
-        opacity: 1,
-        duration: 1,
-        stagger: (index) => {
-          if (index === 0) return 0 // A
-          if (index === 1) return 0.5 // B
-          if (index === 2 || index === 3) return 1 // C & D 同時
-          return index * 0.5 // 其他照規則延遲
-        },
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.parent2',
-          start: 'top 50%',
-        },
-      })
+        const about2 = document.querySelectorAll<HTMLElement>('.about2 .animate-item')
+        gsap.to(about2, {
+          opacity: 1,
+          duration: 1,
+          stagger: { each: 0.5, from: 'end' },
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.about2',
+            start: 'top 50%',
+            // markers: true,
+          },
+        })
 
-      const theInfo = document.querySelectorAll<HTMLElement>('.theInfo .animate-item')
-      gsap.to(theInfo, {
-        opacity: 1,
-        duration: 1,
-        stagger: (index) => {
-          if (index === 0) return 0
-          if (index === 1) return 0.5
-          if (index === 2) return 1
-          if (index === 3 || index === 7) return 1.5
-          if (index === 4 || index === 8) return 2
-          if (index === 5 || index === 9) return 2.5
-          if (index === 6 || index === 10) return 3
-          return index * 0.5
-        },
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.theInfo',
-          start: 'top 50%',
-          // markers: true,
-        },
-      })
+        const parentOrder = [1, 0, 2, 3]
+        const parent1 = document.querySelectorAll<HTMLElement>('.parent1 .animate-item')
+        const parent2 = document.querySelectorAll<HTMLElement>('.parent2 .animate-item')
+        const parent1Order = parentOrder.map((i) => parent1[i])
+        const parent2Order = parentOrder.map((i) => parent2[i])
+        gsap.to(parent1Order, {
+          opacity: 1,
+          duration: 1,
+          stagger: (index) => {
+            if (index === 0) return 0 // A
+            if (index === 1) return 0.5 // B
+            if (index === 2 || index === 3) return 1 // C & D 同時
+            return index * 0.5 // 其他照規則延遲
+          },
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.parent1',
+            start: 'top 50%',
+          },
+        })
+        gsap.to(parent2Order, {
+          opacity: 1,
+          duration: 1,
+          stagger: (index) => {
+            if (index === 0) return 0 // A
+            if (index === 1) return 0.5 // B
+            if (index === 2 || index === 3) return 1 // C & D 同時
+            return index * 0.5 // 其他照規則延遲
+          },
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.parent2',
+            start: 'top 50%',
+          },
+        })
 
-      const reply = document.querySelectorAll<HTMLElement>('.reply .animate-item')
-      gsap.to(reply, {
-        opacity: 0.9,
-        duration: 1,
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.reply',
-          start: 'top 60%',
-          // markers: true,
-        },
-      })
+        const theInfo = document.querySelectorAll<HTMLElement>('.theInfo .animate-item')
+        gsap.to(theInfo, {
+          opacity: 1,
+          duration: 1,
+          stagger: (index) => {
+            if (index === 0) return 0
+            if (index === 1) return 0.5
+            if (index === 2) return 1
+            if (index === 3 || index === 7) return 1.5
+            if (index === 4 || index === 8) return 2
+            if (index === 5 || index === 9) return 2.5
+            if (index === 6 || index === 10) return 3
+            return index * 0.5
+          },
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.theInfo',
+            start: 'top 50%',
+            // markers: true,
+          },
+        })
 
-      specialTl.current = gsap.timeline({ paused: true })
-      specialTl.current.to('.landing-animate', {
-        opacity: 1,
-        duration: 1,
-        delay: 1,
-        stagger: (index) => {
-          if (index === 2) return 0
-          if (index === 0 || index === 3) return 0.6
-          if (index === 1) return 1.2
-          return index * 0.5
-        },
-      })
-    }, containerRef)
+        const reply = document.querySelectorAll<HTMLElement>('.reply .animate-item')
+        gsap.to(reply, {
+          opacity: 0.9,
+          duration: 1,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '.reply',
+            start: 'top 60%',
+            // markers: true,
+          },
+        })
 
-    return () => ctx.revert()
+        specialTl.current = gsap.timeline({ paused: true })
+        specialTl.current.to('.landing-animate', {
+          opacity: 1,
+          duration: 1,
+          delay: 1,
+          stagger: (index) => {
+            if (index === 2) return 0
+            if (index === 0 || index === 3) return 0.6
+            if (index === 1) return 1.2
+            return index * 0.5
+          },
+        })
+      }, containerRef)
+    }
   }, [])
-
-  window.addEventListener('load', () => {
-    ScrollTrigger.refresh()
-  })
 
   const hide = hasEnter ? 'hide' : ''
   return (
